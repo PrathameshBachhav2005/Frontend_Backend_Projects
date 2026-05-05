@@ -1,0 +1,141 @@
+/* Jokes Viewer app styles (plain CSS) */
+
+.container {
+  width: 100%;
+  padding: 24px 16px 56px;
+  box-sizing: border-box;
+}
+
+.loading {
+  margin: 72px auto 0;
+  padding: 28px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: color-mix(in oklab, var(--accent-bg) 20%, var(--bg));
+  max-width: 680px;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 4px solid rgba(170, 59, 255, 0.18);
+  border-top-color: var(--accent);
+  animation: jokes-spin 0.9s linear infinite;
+}
+
+.loading p {
+  color: var(--text-h);
+  font-weight: 500;
+}
+
+@keyframes jokes-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.empty-state {
+  margin: 72px auto 0;
+  padding: 28px 18px;
+  border: 1px dashed var(--border);
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.02);
+  max-width: 680px;
+}
+
+.empty-state p {
+  color: var(--text-h);
+  font-weight: 500;
+}
+
+.card-grid {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 8px;
+  box-sizing: border-box;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  align-items: stretch;
+}
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: color-mix(in oklab, var(--bg) 92%, var(--accent-bg) 8%);
+  box-shadow: var(--shadow);
+  padding: 16px;
+  min-height: 150px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in oklab, var(--accent-border) 55%, var(--border));
+  box-shadow: var(--shadow), 0 14px 30px rgba(0, 0, 0, 0.06);
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.car-title {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.35;
+  letter-spacing: -0.1px;
+  color: var(--text-h);
+  font-weight: 600;
+
+  /* Make long jokes wrap nicely */
+  word-break: break-word;
+  white-space: normal;
+}
+
+.info-label {
+  display: block;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--accent-border);
+  background: var(--accent-bg);
+}
+
+/* Small screens: reduce padding a bit */
+@media (max-width: 520px) {
+  .container {
+    padding: 18px 12px 44px;
+  }
+
+  .loading,
+  .empty-state {
+    margin-top: 56px;
+  }
+
+  .card {
+    padding: 14px;
+    min-height: 132px;
+  }
+
+  .car-title {
+    font-size: 16px;
+  }
+}
