@@ -1,0 +1,201 @@
+/* Unique brutalist card UI for the YouTube Videos Listing app */
+
+:root {
+  --pl-bg: #0b0b0f;
+  --pl-surface: #12121a;
+  --pl-surface-2: #171723;
+  --pl-text: #f7f7fb;
+  --pl-muted: #b7b7c7;
+  --pl-border: #2b2b3a;
+  --pl-border-2: #3a3a52;
+  --pl-accent: #ffcc00;
+  --pl-accent-2: #00e5ff;
+  --pl-danger: #ff4d4d;
+
+  --pl-shadow: 6px 6px 0 #000000;
+  --pl-shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --pl-radius: 16px;
+  --pl-radius-sm: 12px;
+}
+
+.pl-page {
+  min-height: 100vh;
+  padding: 26px 16px 44px;
+  background: var(--pl-bg);
+  color: var(--pl-text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
+    Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.pl-title {
+  margin: 0 0 18px;
+  font-size: clamp(20px, 3.2vw, 34px);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  font-weight: 900;
+  line-height: 1.05;
+  text-shadow: var(--pl-shadow);
+}
+
+.pl-center {
+  text-align: center;
+  margin: 18px 0;
+  font-weight: 700;
+}
+
+.pl-error {
+  color: var(--pl-danger);
+  border: 2px solid #ff9a9a;
+  background: #1a0a0a;
+  padding: 10px 12px;
+  border-radius: 12px;
+  box-shadow: var(--pl-shadow-soft);
+}
+
+.pl-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+/* Cards */
+.pl-card {
+  grid-column: span 4;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--pl-radius);
+  background: var(--pl-surface);
+  border: 2px solid var(--pl-border);
+  box-shadow: var(--pl-shadow);
+  transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+}
+
+.pl-card:hover {
+  transform: translate(-2px, -2px);
+  border-color: var(--pl-border-2);
+  box-shadow: 8px 8px 0 #000000;
+}
+
+.pl-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #0f0f14;
+  border-bottom: 2px solid var(--pl-border);
+}
+
+/* Body */
+.pl-cardBody {
+  padding: 14px 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 260px;
+}
+
+.pl-cardTitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  border: 2px solid var(--pl-border);
+  background: var(--pl-surface-2);
+  padding: 8px 10px;
+  border-radius: var(--pl-radius-sm);
+  box-shadow: 3px 3px 0 #000;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.pl-category,
+.pl-price,
+.pl-publishedAt,
+.pl-description {
+  margin: 0;
+  color: var(--pl-muted);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.pl-category {
+  color: var(--pl-accent);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.pl-price {
+  color: var(--pl-accent-2);
+}
+
+.pl-publishedAt {
+  color: #d8d8ff;
+}
+
+/* Description: keep it readable; clamp so cards stay same height */
+.pl-description {
+  font-weight: 600;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.pl-cardBody .pl-description:nth-of-type(1) {
+  /* "description" field comes after other meta; nth-of-type can vary.
+     Keep no special styling to avoid wrong selection. */
+}
+
+/* Small "stat badges" look */
+.pl-cardBody p {
+  padding: 7px 9px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .pl-card {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 640px) {
+  .pl-page {
+    padding: 18px 12px 34px;
+  }
+
+  .pl-card {
+    grid-column: span 12;
+  }
+
+  .pl-cardBody {
+    min-height: auto;
+  }
+
+  .pl-cardTitle {
+    font-size: 16px;
+  }
+
+  .pl-category,
+  .pl-price,
+  .pl-publishedAt,
+  .pl-description {
+    font-size: 12.5px;
+  }
+}
+
+/* Accessibility: focus within card */
+.pl-card:focus-within {
+  outline: 3px solid var(--pl-accent);
+  outline-offset: 3px;
+}
