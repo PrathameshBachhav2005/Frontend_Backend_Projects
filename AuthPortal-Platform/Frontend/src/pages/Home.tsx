@@ -16,7 +16,7 @@ const Home = () => {
     const fetchData = async () => {
         try {
 
-            const url = "http://localhost:8080/product";
+            const url = "https://authentication-form-indol.vercel.app/product";
             const headers = {
                 headers: {
                     "authorization": localStorage.getItem('token') || ""
