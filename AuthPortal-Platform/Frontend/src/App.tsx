@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import './App.css'
-import { useEffect, useState } from 'react'
+import {  useState } from 'react'
 import Login from '../src/pages/Login'
 import ForgotPassword from './pages/ForgotPassword'
 import Home from '../src/pages/Home'
