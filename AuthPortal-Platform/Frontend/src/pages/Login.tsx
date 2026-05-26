@@ -35,7 +35,7 @@ const Login = () => {
       return toastError("All Fleid are Required!")
     }
     try {
-      const url = "http://localhost:8080/auth/login"
+      const url = "https://authentication-form-indol.vercel.app/auth/login"
       const response = await fetch(url, {
         method: "POST",
         headers: {
