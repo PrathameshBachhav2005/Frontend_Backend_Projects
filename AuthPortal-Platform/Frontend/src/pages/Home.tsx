@@ -16,7 +16,8 @@ const Home = () => {
     const fetchData = async () => {
         try {
 
-            const url = "https://authentication-form-indol.vercel.app/product";
+            const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
+            const url = `${API_URL}/product`;
             const headers = {
                 headers: {
                     "authorization": localStorage.getItem('token') || ""

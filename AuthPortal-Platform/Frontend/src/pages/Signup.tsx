@@ -37,7 +37,8 @@ const Signup = () => {
             return toastError("All Fleid are Required!")
         }
         try {
-            const url = "https://authentication-form-indol.vercel.app/auth/signup";
+            const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
+            const url = `${API_URL}/auth/signup`;
             const response = await fetch(url, {
                 method: "POST",
                 headers: {
