@@ -35,8 +35,8 @@ const Login = () => {
       return toastError("All Fleid are Required!")
     }
     try {
-      const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
-      const url = `${API_URL}/auth/login`;
+      
+      const url = "https://auth-portal-backend.vercel.app//auth/login";
       const response = await fetch(url, {
         method: "POST",
         headers: {
