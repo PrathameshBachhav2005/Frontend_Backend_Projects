@@ -21,7 +21,7 @@ const ForgotPassword = () => {
     try {
       setLoading(true)
 
-      const API_URL = "http://localhost:8080";
+      const API_URL = "https://auth-portal-backend.vercel.app";
       const response = await fetch(`${API_URL}/auth/forgot-password`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
