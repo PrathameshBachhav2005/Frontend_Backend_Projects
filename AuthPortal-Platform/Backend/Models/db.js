@@ -1,28 +1,29 @@
 import mongoose from "mongoose";
 
-const mongodb=mongoose.connect(process.env.MONGO_CONN);
-
-mongodb.then(()=>{
-    console.log("Mongodb is connected...");
-}).catch((err)=>{
-    console.log(`Mongodb is Not Connected  ${err}`)
-})
-
-export default mongodb;
+// mongoose.connect(process.env.MONGO_CONN)
+//     .then(() => {
+//         console.log("MongoDB is connected...");
+//     })
+//     .catch((err) => {
+//         console.error("MongoDB connection failed:", err.message);
+//         // Exit so the process doesn't silently serve HTML errors
+//         process.exit(1);
+//     });
 
 
 // if you use below code then also call below code in Server.js file like this way "mongodb()"
 
 
-// const connectDB = async () => {
-//    try {
-//       await mongoose.connect(process.env.MONGO_CONN);
-//       console.log("MongoDB Connected");
-//    } 
-//    catch(err) {
-//       console.log("MongoDB Not Connected");
-//       console.log(err);
-//    }
-// }
+const mongodb = async () => {
+   try {
+      await mongoose.connect(process.env.MONGO_CONN);
+      console.log("MongoDB Connected");
+   } 
+   catch(err) {
+      console.log("MongoDB Not Connected");
+      console.log(err);
+      process.exit(1);
+   }
+}
 
-// export default connectDB;
+export default mongodb;
