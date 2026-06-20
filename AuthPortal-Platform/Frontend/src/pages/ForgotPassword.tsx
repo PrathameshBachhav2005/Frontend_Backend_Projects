@@ -21,8 +21,7 @@ const ForgotPassword = () => {
     try {
       setLoading(true)
 
-      const API_URL = "https://auth-portal-backend.vercel.app";
-      const response = await fetch(`${API_URL}/auth/forgot-password`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/forgot-password`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, newPassword }),

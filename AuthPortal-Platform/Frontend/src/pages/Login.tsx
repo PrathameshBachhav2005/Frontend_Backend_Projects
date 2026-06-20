@@ -36,7 +36,7 @@ const Login = () => {
     }
     try {
       
-      const url = "https://auth-portal-backend.vercel.app/auth/login";
+      const url = `${import.meta.env.VITE_API_URL}/auth/login`;
       const response = await fetch(url, {
         method: "POST",
         headers: {

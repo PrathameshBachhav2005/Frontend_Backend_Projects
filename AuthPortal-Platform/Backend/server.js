@@ -8,7 +8,11 @@ import ProductRouter from "./Routes/ProductRouter.js";
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: ["http://localhost:5173", "http://localhost:5174"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+}));
 app.use(bodyParser.json());
 
 app.get("/about", (req, res) => {

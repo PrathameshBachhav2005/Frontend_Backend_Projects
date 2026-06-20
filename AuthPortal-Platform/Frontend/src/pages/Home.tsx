@@ -16,8 +16,7 @@ const Home = () => {
     const fetchData = async () => {
         try {
 
-            const API_URL = "https://auth-portal-backend.vercel.app";
-            const url = `${API_URL}/product`;
+            const url = `${import.meta.env.VITE_API_URL}/product`;
             const headers = {
                 headers: {
                     "authorization": localStorage.getItem('token') || ""
