@@ -27,10 +27,7 @@ app.use((err, req, res, next) => {
     });
 });
 
-// 404 fallback — only for truly unknown routes
-app.use((req, res) => {
-    res.status(404).json({ message: "Route not found", success: false });
-});
+
 
 const Port = process.env.PORT || 8080;
 
