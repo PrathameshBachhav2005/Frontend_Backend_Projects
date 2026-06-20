@@ -16,7 +16,7 @@ const Home = () => {
     const fetchData = async () => {
         try {
 
-            const API_URL = "http://localhost:8080";
+            const API_URL = "https://auth-portal-backend.vercel.app";
             const url = `${API_URL}/product`;
             const headers = {
                 headers: {
